@@ -34,8 +34,8 @@
     <section>
         <section class="text-gray-400 bg-gray-900 body-font">
             <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
-                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center"
-                    data-aos="slide-right">
+                <div
+                    class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
                     <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">going through anything alone
                         why not share anonymously
                         <br class="hidden lg:inline-block">Connect Anonymously
@@ -47,7 +47,7 @@
 
                     </div>
                 </div>
-                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6" data-aos="slide-left">
+                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
                     <img class="object-cover object-center rounded-2xl" alt="hero" src="images/cinematic.jpeg">
                 </div>
             </div>
@@ -81,7 +81,8 @@
 
 
                     <a class="text-purple-400 inline-flex items-center mt-3">
-                        <form action="https://docs.google.com/forms/d/e/1FAIpQLSeK0Yf2L3rhu506d0VSaillT7y4083x4b8eSIfV2mgSTNaZ6A/viewform">
+                        <form
+                            action="https://docs.google.com/forms/d/e/1FAIpQLSeK0Yf2L3rhu506d0VSaillT7y4083x4b8eSIfV2mgSTNaZ6A/viewform">
                             <input type="submit"
                                 class="bg-purple-900 border-gray-700 text-white h-12 w-28 rounded-2xl px-2 py-2"
                                 value="send problem">
@@ -195,79 +196,88 @@
 
     <section class="text-gray-400 bg-gray-900 body-font relative">
         <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-col text-center w-full mb-12" data-aos="slide-right">
+            <div class="flex flex-col text-center w-full mb-12">
                 <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Contact Us</h1>
                 <p class="lg:w-2/3 mx-auto leading-relaxed text-base">struggling somewhere contact us</p>
             </div>
-            <div class="lg:w-1/2 md:w-2/3 mx-auto" >
-                <div class="flex flex-wrap -m-2" data-aos="slide-left">
-                    <div class="p-2 w-1/2">
-                        <div class="relative" >
-                            <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
-                            <input type="text" id="name" name="name"
-                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-1/2">
-                        <div class="relative">
-                            <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
-                            <input type="email" id="email" name="email"
-                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                        </div>
-                    </div>
-                    <div class="p-2 w-full">
-                        <div class="relative">
-                            <label for="message" class="leading-7 text-sm text-gray-400">Message</label>
-                            <textarea id="message" name="message"
-                                class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
-                        </div>
-                    </div>
-                    <div class="p-2 w-full">
-                        <button
-                            class="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">send</button>
-                    </div>
-                    <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center" data-aos="slide-right">
+            <form method="POST" id="form" onsubmit="return formValidation(event)">
+                <div class="lg:w-1/2 md:w-2/3 mx-auto">
 
-                        <a href="mailto: hiddenfriendsatvit@gmai.com">hiddenfriendsatvit@gmai.com</a>
-                        <p class="leading-normal my-5">VIT VELLORE
-                            <br>VIT, Vellore Campus, Tiruvalam Rd, Katpadi, Vellore, Tamil Nadu 632014
-                        </p>
-                        <span class="inline-flex">
-                            <a class="text-gray-500">
-                                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    class="w-5 h-5" viewBox="0 0 24 24">
-                                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                                </svg>
-                            </a>
-                            <a class="ml-4 text-gray-500">
-                                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    class="w-5 h-5" viewBox="0 0 24 24">
-                                    <path
-                                        d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
-                                    </path>
-                                </svg>
-                            </a>
-                            <a class="ml-4 text-gray-500">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                                </svg>
-                            </a>
-                            <a class="ml-4 text-gray-500">
-                                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    class="w-5 h-5" viewBox="0 0 24 24">
-                                    <path
-                                        d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
-                                    </path>
-                                </svg>
-                            </a>
-                        </span>
+                    <div class="flex flex-wrap -m-2">
+                        <input type="hidden" name="access_key" value="8579635a-92fc-4aff-8363-61123ee499b5">
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="name" class="leading-7 text-sm text-gray-400">Name</label>
+                                <input type="text" id="name" name="name" required
+                                    class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-2 w-1/2">
+                            <div class="relative">
+                                <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
+                                <input type="email" id="email" name="email" required
+                                    class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                            </div>
+                        </div>
+                        <div class="p-2 w-full">
+                            <div class="relative">
+                                <label for="message" class="leading-7 text-sm text-gray-400">Message</label>
+                                <textarea id="message" name="message" required
+                                    class="w-full bg-gray-800 bg-opacity-40 rounded border border-gray-700 focus:border-purple-500 focus:bg-gray-900 focus:ring-2 focus:ring-purple-900 h-32 text-base outline-none text-gray-100 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                            </div>
+                        </div>
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                        <div class="p-2 w-full">
+                            <button
+                                class="flex mx-auto text-white bg-purple-500 border-0 py-2 px-8 focus:outline-none hover:bg-purple-600 rounded text-lg">send</button>
+                        </div>
+                        <div id="error" style="color: red;"></div>
+                        <div class="p-2 w-full pt-8 mt-8 border-t border-gray-800 text-center">
+
+                            <a href="mailto: hiddenfriendsatvit@gmai.com">hiddenfriends00@gmail.com</a>
+                            <p class="leading-normal my-5">VIT VELLORE
+                                <br>VIT, Vellore Campus, Tiruvalam Rd, Katpadi, Vellore, Tamil Nadu 632014
+                            </p>
+                            <span class="inline-flex">
+                                <a class="text-gray-500">
+                                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="ml-4 text-gray-500">
+                                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path
+                                            d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                                        </path>
+                                    </svg>
+                                </a>
+                                <a class="ml-4 text-gray-500">
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                        stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                        <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                                    </svg>
+                                </a>
+                                <a class="ml-4 text-gray-500">
+                                    <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                        <path
+                                            d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z">
+                                        </path>
+                                    </svg>
+                                </a>
+                            </span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
+
+
     <section>
 
 
@@ -276,8 +286,8 @@
     </section>
     <section>
         <section class="text-gray-400 bg-gray-900 body-font">
-            <div class="container px-5 py-24 mx-auto" data-aos="slide-right">
-                <div class="flex flex-col text-center w-full mb-20" >
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-col text-center w-full mb-20">
                     <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">Our Team</h1>
                     <p class="lg:w-2/3 mx-auto leading-relaxed text-base">the way I see it, if you want the rainbow, you
                         gotta put up with rain </p>
@@ -329,6 +339,7 @@
 
     <div id="torrent-scanner-popup" style="display: none;"></div>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="sript.js"></script>
     <script>
         AOS.init({
             offset: 300,
