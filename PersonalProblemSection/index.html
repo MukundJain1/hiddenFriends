@@ -23,28 +23,30 @@
     <section class="text-gray-400 bg-gray-900 body-font relative">
         <div class="container px-5 py-24 mx-auto">
             <div class="text-center mb-12">
-                <h1 class="text-3xl font-medium text-white">Struggling with Work or Studies?</h1>
+                <h1 class="text-3xl font-medium text-white">Struggling with Personal Problems?</h1>
                 <p class="mt-2 text-gray-400">Share your concerns anonymously and get guidance.</p>
             </div>
-            <form method="POST">
+            <form id="form" method="POST" onsubmit="return formValidation(event)">
                 <div class="lg:w-1/2 md:w-2/3 mx-auto">
                     <div class="flex flex-wrap -m-2">
-                        <input type="hidden" name="access_key" value="your_access_key">
+                        <input type="hidden" name="access_key" value="8579635a-92fc-4aff-8363-61123ee499b5">
+                        
                         <!-- Gender -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">Gender</label>
-                            <select id="category" name="category" required 
+                            <select id="gender" name="gender" required
                                 class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
                                 <option value="male">Male</option>
-                                <option value="female">female</option>
+                                <option value="female">Female</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        <!-- Work or Study Category -->
+
+                        <!-- Personal Problem Category -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">What are you struggling with?</label>
-                            <select id="category" name="category" required 
-                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded" 
+                            <select id="category" name="category" required
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded"
                                 onchange="toggleOtherField(this, 'other-work-study')">
                                 <option value="family-issues">Family Issues</option>
                                 <option value="relationship-problems">Relationship Problems</option>
@@ -58,7 +60,7 @@
                         <!-- "Other" Text Area (Hidden by Default) -->
                         <div class="p-2 w-full" id="other-work-study" style="display: none;">
                             <label class="leading-7 text-sm text-gray-400">Please specify</label>
-                            <textarea name="other-category" 
+                            <textarea id="other-category" name="other-category"
                                 class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-16 rounded"></textarea>
                         </div>
 
@@ -76,7 +78,7 @@
                         <!-- Problem Description -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">Describe your issue</label>
-                            <textarea name="message" required
+                            <textarea id="message" name="message" required
                                 class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-32 rounded"></textarea>
                         </div>
 
@@ -92,7 +94,7 @@
 
                         <!-- Optional Anonymous ID -->
                         <div class="p-2 w-full">
-                            <label class="leading-7 text-sm text-gray-400">Anonymous ID </label>
+                            <label class="leading-7 text-sm text-gray-400">Anonymous ID</label>
                             <input type="text" name="contact"
                                 class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
                             <p class="text-xs text-gray-500">Use this ID to track your response anonymously.</p>
@@ -100,13 +102,18 @@
 
                         <!-- Submit Button -->
                         <div class="p-2 w-full">
-                            <button class="mx-auto text-white bg-purple-500 py-2 px-8 rounded">Submit</button>
+                            <button type="submit" class="mx-auto text-white bg-purple-500 py-2 px-8 rounded">Submit</button>
                         </div>
+
+                        <!-- Error Display -->
+                        <div id="error" class="text-red-500 text-center mt-2"></div>
                     </div>
                 </div>
             </form>
         </div>
     </section>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

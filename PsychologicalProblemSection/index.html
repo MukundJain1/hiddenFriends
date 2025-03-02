@@ -14,35 +14,14 @@
                 otherField.style.display = "none";
             }
         }
-        
-        function formValidation(event) {
-            var category = document.getElementById("category").value;
-            var otherCategory = document.getElementById("other-category").value.trim();
-            var message = document.getElementById("message").value.trim();
-            var errorDiv = document.getElementById("error");
-            errorDiv.innerHTML = "";
-            
-            if (category === "other" && otherCategory === "") {
-                errorDiv.innerHTML = "Please specify your problem in the 'Other' category.";
-                event.preventDefault();
-                return false;
-            }
-            
-            if (message === "") {
-                errorDiv.innerHTML = "Please describe your problem.";
-                event.preventDefault();
-                return false;
-            }
-            return true;
-        }
     </script>
 </head>
 <body>
     <section class="text-gray-400 bg-gray-900 body-font relative">
         <div class="container px-5 py-24 mx-auto">
             <div class="text-center mb-12">
-                <h1 class="text-3xl font-medium text-white">Share Your Concerns Anonymously</h1>
-                <p class="mt-2 text-gray-400">We’re here to listen without judgment. Feel free to express yourself.</p>
+                <h1 class="text-3xl font-medium text-white">Struggling with Psychological Problem?</h1>
+                <p class="mt-2 text-gray-400">Share your concerns anonymously and get guidance.</p>
             </div>
             <form method="POST" id="form" onsubmit="return formValidation(event)">
                 <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -115,11 +94,12 @@
                             <button class="mx-auto text-white bg-purple-500 py-2 px-8 rounded">Submit</button>
                         </div>
 
-                        <div id="error" style="color: red;"></div>
+                        <div id="error" class="text-red-500 text-center mt-2"></div>
                     </div>
                 </div>
             </form>
         </div>
     </section>
 </body>
+<script src="script.js"> </script>
 </html>
