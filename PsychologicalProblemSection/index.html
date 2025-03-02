@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <title>Psychological Support</title>
+    <script>
+        function toggleOtherField(selectElement) {
+            var otherField = document.getElementById("other-category-field");
+            if (selectElement.value === "other") {
+                otherField.style.display = "block";
+            } else {
+                otherField.style.display = "none";
+            }
+        }
+        
+        function formValidation(event) {
+            var category = document.getElementById("category").value;
+            var otherCategory = document.getElementById("other-category").value.trim();
+            var message = document.getElementById("message").value.trim();
+            var errorDiv = document.getElementById("error");
+            errorDiv.innerHTML = "";
+            
+            if (category === "other" && otherCategory === "") {
+                errorDiv.innerHTML = "Please specify your problem in the 'Other' category.";
+                event.preventDefault();
+                return false;
+            }
+            
+            if (message === "") {
+                errorDiv.innerHTML = "Please describe your problem.";
+                event.preventDefault();
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <section class="text-gray-400 bg-gray-900 body-font relative">
+        <div class="container px-5 py-24 mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl font-medium text-white">Share Your Concerns Anonymously</h1>
+                <p class="mt-2 text-gray-400">We’re here to listen without judgment. Feel free to express yourself.</p>
+            </div>
+            <form method="POST" id="form" onsubmit="return formValidation(event)">
+                <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                    <div class="flex flex-wrap -m-2">
+                        <input type="hidden" name="access_key" value="8579635a-92fc-4aff-8363-61123ee499b5">
+                        <!-- Gender -->
+                        <div class="p-2 w-full">
+                            <label class="leading-7 text-sm text-gray-400">Gender</label>
+                            <select id="category" name="category" required 
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                                <option value="male">Male</option>
+                                <option value="female">female</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <!-- Problem Category -->
+                        <div class="p-2 w-full">
+                            <label class="leading-7 text-sm text-gray-400">What are you struggling with?</label>
+                            <select id="category" name="category" required onchange="toggleOtherField(this)" class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                                <option value="anxiety">Anxiety</option>
+                                <option value="depression">Depression</option>
+                                <option value="self-doubt">Self-Doubt</option>
+                                <option value="relationship-issues">Relationship Issues</option>
+                                <option value="work-stress">Work Stress</option>
+                                <option value="study-pressure">Study Pressure</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="p-2 w-full" id="other-category-field" style="display: none;">
+                            <label class="leading-7 text-sm text-gray-400">Please specify</label>
+                            <textarea id="other-category" name="other-category" class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-20 rounded"></textarea>
+                        </div>
+
+                        <!-- Severity Level -->
+                        <div class="p-2 w-full">
+                            <label class="leading-7 text-sm text-gray-400">How severe is the issue?</label>
+                            <select id="severity" name="severity" required class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                                <option value="mild">Mild</option>
+                                <option value="moderate">Moderate</option>
+                                <option value="severe">Severe</option>
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="p-2 w-full">
+                            <label class="leading-7 text-sm text-gray-400">Describe your problem</label>
+                            <textarea id="message" name="message" required class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-32 rounded"></textarea>
+                        </div>
+
+                        <!-- Preferred Response Type -->
+                        <div class="p-2 w-full">
+                            <label class="leading-7 text-sm text-gray-400">How would you like to receive a response?</label>
+                            <select id="response-type" name="response-type" class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                                <option value="detailed-guide">Detailed Guide</option>
+                                <option value="quick-advice">Quick Advice</option>
+                            </select>
+                        </div>
+
+                        <!-- Optional Contact -->
+                        <div class="p-2 w-full">
+                            <label class="leading-7 text-sm text-gray-400">Anonymous ID (Optional)</label>
+                            <input type="text" id="contact" name="contact" class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-1 px-3 rounded">
+                            <p class="text-xs text-gray-500 mt-1">Use this ID to track your response without revealing your identity.</p>
+                        </div>
+
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                        <!-- Submit Button -->
+                        <div class="p-2 w-full">
+                            <button class="mx-auto text-white bg-purple-500 py-2 px-8 rounded">Submit</button>
+                        </div>
+
+                        <div id="error" style="color: red;"></div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+</body>
+</html>
