@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Anonymous Sign In</title>
+</head>
+
+<body class="bg-gray-900 text-gray-400">
+
+    <!-- Message Box (Outer) -->
+    <div id="message-box"
+        class="hidden fixed top-16 inset-x-0 flex justify-center opacity-0 transition-all duration-500">
+        <!-- Message Container (Inner) -->
+        <div id="message-container"
+            class="bg-green-700 text-white px-4 py-2 rounded-xl shadow-xl w-fit max-w-xs sm:max-w-sm flex items-center gap-2 border">
+
+            <!-- Success Icon (Check) -->
+            <svg id="icon-success" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+
+            <!-- Error Icon (Cross) -->
+            <svg id="icon-error" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="none"
+                viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+
+            <span id="message-text"></span>
+        </div>
+    </div>
+
+    <section class="flex justify-center items-center min-h-screen">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-96 text-center">
+            <h1 class="text-2xl font-medium text-white">Welcome Back</h1>
+            <p class="mt-2">Enter your Anonymous ID to sign in.</p>
+            <form id="signin-form" class="mt-4">
+                <input type="text" id="anon-id" placeholder="Enter Anonymous ID"
+                    class="w-full bg-gray-700 border border-gray-600 text-white py-2 px-3 rounded focus:outline-none">
+                <button type="submit" class="w-full mt-4 bg-purple-500 hover:bg-purple-600 text-white py-2 rounded">
+                    Sign In
+                </button>
+            </form>
+
+            <p class="mt-4">New here?</p>
+            <button type="button" id="signup-btn" class="mt-2 text-purple-400 hover:underline">
+                Create an Anonymous ID
+            </button>
+        </div>
+    </section>
+
+    <script>
+        // Handle Sign-In
+        document.getElementById("signin-form").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const anonId = document.getElementById("anon-id").value.trim();
+            const savedId = localStorage.getItem("anonymousId") || "";
+
+            if (anonId === "") {
+                showMessage("Please enter your Anonymous ID!", "error");
+            } else if (anonId === savedId) {
+                showMessage("Sign-in successful!", "success");
+                window.location = "index.html";
+            } else {
+                showMessage("Invalid Anonymous ID!", "error");
+            }
+        });
+
+        // Handle Sign-Up
+        document.getElementById("signup-btn").addEventListener("click", function () {
+            const anonId = "anon-" + Math.random().toString(36).substr(2, 9);
+            localStorage.setItem("anonymousId", anonId);
+            showMessage("Your Anonymous ID: " + anonId + " (Save this ID!)", "success");
+            // window.location = "index.html";
+        });
+
+        function showMessage(message, type) {
+            const messageBox = document.getElementById('message-box');
+            const messageContainer = document.getElementById('message-container');
+            const messageText = document.getElementById('message-text');
+            const iconSuccess = document.getElementById('icon-success');
+            const iconError = document.getElementById('icon-error');
+
+            // Update message text
+            messageText.textContent = message;
+
+            // Hide both icons initially
+            iconSuccess.classList.add('hidden');
+            iconError.classList.add('hidden');
+
+            // Remove any previous color classes
+            messageContainer.classList.remove('bg-green-700', 'bg-red-700');
+
+            // If success
+            if (type === 'success') {
+                iconSuccess.classList.remove('hidden');
+                messageContainer.classList.add('bg-green-700');
+            }
+            else if (type === 'created') {
+                iconSuccess.classList.remove('hidden');
+                messageContainer.classList.add('bg-green-700');
+
+            }
+            // If error
+            else {
+                iconError.classList.remove('hidden');
+                messageContainer.classList.add('bg-red-700');
+            }
+
+            // Show the message box
+            messageBox.classList.remove('hidden', 'opacity-0');
+            messageBox.classList.add('opacity-100');
+
+            // Hide after 3 seconds
+            setTimeout(() => {
+                messageBox.classList.remove('opacity-100');
+                messageBox.classList.add('opacity-0');
+                setTimeout(() => {
+                    messageBox.classList.add('hidden');
+                }, 500);
+            }, 3000);
+        }
+    </script>
+
+</body>
+
+</html>
