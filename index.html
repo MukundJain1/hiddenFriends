@@ -1,65 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <title>HF Sign In</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>HF Sign In</title>
 </head>
+
 <body class="bg-gray-900 text-gray-400">
-  <header class="w-full fixed top-0 left-0 bg-gray-800 py-4 px-6 shadow-lg">
-    <div class="container mx-auto flex items-center justify-between">
-      <a class="flex items-center">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
-          stroke-linejoin="round" stroke-width="2" class="w-10 h-10 p-2 bg-indigo-500 rounded-full"
-          viewBox="0 0 24 24">
-          <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-        </svg>
-        <span class="ml-3 text-xl font-bold">Hidden Friends</span>
-      </a>
-    </div>
-  </header>
+    <header class="w-full fixed top-0 left-0 bg-gray-800 py-4 px-6 shadow-lg">
+        <div class="container mx-auto flex items-center justify-between">
+            <a class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round"
+                    stroke-linejoin="round" stroke-width="2" class="w-10 h-10 p-2 bg-indigo-500 rounded-full"
+                    viewBox="0 0 24 24">
+                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                </svg>
+                <span class="ml-3 text-xl font-bold">Hidden Friends</span>
+            </a>
+        </div>
+    </header>
 
-  <div id="message-box" class="hidden fixed top-16 inset-x-0 flex justify-center opacity-0 transition-all duration-500">
-    <div id="message-container"
-      class="bg-green-700 text-white px-4 py-2 rounded-xl shadow-xl w-fit max-w-xs sm:max-w-sm flex items-center gap-2 border">
-      <!-- Success Icon (Check) -->
-      <svg id="icon-success" class="hidden w-6 h-6 text-green-100" fill="none" stroke="currentColor"
-        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-      </svg>
-      <!-- Error Icon (Cross) -->
-      <svg id="icon-error" class="hidden w-6 h-6 text-red-100" fill="none" stroke="currentColor"
-        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-      </svg>
-      <span id="message-text"></span>
+    <div id="message-box"
+        class="hidden fixed top-16 inset-x-0 flex justify-center opacity-0 transition-all duration-500">
+        <div id="message-container"
+            class="bg-green-700 text-white px-4 py-2 rounded-xl shadow-xl w-fit max-w-xs sm:max-w-sm flex items-center gap-2 border">
+            <!-- Success Icon (Check) -->
+            <svg id="icon-success" class="hidden w-6 h-6 text-green-100" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+            </svg>
+            <!-- Error Icon (Cross) -->
+            <svg id="icon-error" class="hidden w-6 h-6 text-red-100" fill="none" stroke="currentColor"
+                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+            <span id="message-text"></span>
+        </div>
     </div>
-  </div>
 
-  <section class="flex justify-center items-center min-h-screen">
-    <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-96 text-center">
-      <h1 class="text-2xl font-medium text-white">
-        Welcome Back!
-      </h1>
-      <p class="mt-2">Sign in with your Username and Password</p>
-      <form id="signin-form" class="mt-4">
-        <input type="text" id="username" placeholder="Enter Username" class="w-full mt-4 bg-gray-700 border border-gray-600 text-white py-2 px-3 rounded focus:outline-none" />
-        <input type="password" id="password" placeholder="Enter Password" class="w-full mt-4 bg-gray-700 border border-gray-600 text-white py-2 px-3 rounded focus:outline-none" />
-        <button type="submit" id="signin" class="w-1/2 mt-4 bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-b-2xl rounded-t-2xl">
-          Sign In
-        </button>
-      </form>
-      <!-- Loading Indicator -->
-      <div id="loading-indicator" class="mt-4 text-white" style="display: none;">
-        Loading...
-      </div>
-    </div>
-  </section>
+    <section class="flex justify-center items-center min-h-screen">
+        <div class="bg-gray-800 p-8 rounded-lg shadow-lg w-96 text-center">
+            <h1 class="text-2xl font-medium text-white">
+                Welcome Back!
+            </h1>
+            <p class="mt-2">Sign in with your Username and Password</p>
+            <form id="signin-form" class="mt-4">
+                <input type="text" id="username" placeholder="Enter Username"
+                    class="w-full mt-4 bg-gray-700 border border-gray-600 text-white py-2 px-3 rounded focus:outline-none" />
+                <input type="password" id="password" placeholder="Enter Password"
+                    class="w-full mt-4 bg-gray-700 border border-gray-600 text-white py-2 px-3 rounded focus:outline-none" />
+                <button type="submit" id="signin"
+                    class="w-1/2 mt-4 bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-b-2xl rounded-t-2xl">
+                    Sign In
+                </button>
+            </form>
 
-  <!-- Import the sign-in script as an ES module -->
-  <script type="module" src="signin.js"></script>
+            <p class="mt-2">New Here !?</p>
+            <a href="src/components/signuppage/signup.html"><button
+                    class="w-1/2 mt-4 bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-b-2xl rounded-t-2xl">
+                    Create Account
+                </button></a>
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="mt-4 text-white" style="display: none;">
+                Loading...
+            </div>
+        </div>
+    </section>
+
+    <!-- Import the sign-in script as an ES module -->
+    <script type="module" src="signin.js"></script>
 </body>
+
 </html>

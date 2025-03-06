@@ -1,7 +1,7 @@
 // signIn.js
-import { auth } from "/src/components/firebase.js";
+import { auth } from "./src/components/firebase.js";
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { showMessage } from "/functions/showMes.js";
+import { showMessage } from "./functions/showMes.js";
 import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 // Initialize Firestore
