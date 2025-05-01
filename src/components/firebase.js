@@ -1,15 +1,19 @@
 // firebase.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+import env from "dotenv";
+
+env.config();
+
 // Firebase Configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyC2zURLoNmlM8KkrGf0I9EPUbRSltrfF9o",
-  authDomain: "hiddenfriends-747e1.firebaseapp.com",
-  projectId: "hiddenfriends-747e1",
-  storageBucket: "hiddenfriends-747e1.appspot.com",
-  messagingSenderId: "135241231437",
-  appId: "1:135241231437:web:9335b27faed50d191c0004",
-  measurementId: "G-GD4FXSHH0C"
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGE_SENDER_ID,
+  appId: process.env.APP_ID,
+  measurementId: process.env.MEASUREMENT_ID
 };
 
 // Initialize Firebase
