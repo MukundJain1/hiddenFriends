@@ -4,13 +4,13 @@ import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com
 
 // Firebase Configuration
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_API_KEY,
-  authDomain: import.meta.env.VITE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_MESSAGE_SENDER_ID,
-  appId: import.meta.env.VITE_APP_ID,
-  measurementId: import.meta.env.VITE_MEASUREMENT_ID
+  apiKey: "AIzaSyC2zURLoNmlM8KkrGf0I9EPUbRSltrfF9o",
+  authDomain: "hiddenfriends-747e1.firebaseapp.com",
+  projectId: "hiddenfriends-747e1",
+  storageBucket: "hiddenfriends-747e1.appspot.com",
+  messagingSenderId: "135241231437",
+  appId: "1:135241231437:web:9335b27faed50d191c0004",
+  measurementId: "G-GD4FXSHH0C"
 };
 
 // Initialize Firebase
