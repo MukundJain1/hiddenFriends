@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
-    <title>Work or Study Problems</title>
+    <title>Personal Problems</title>
     <script>
         function toggleOtherField(selectElement, otherFieldId) {
             var otherField = document.getElementById(otherFieldId);
@@ -16,52 +18,57 @@
         }
     </script>
 </head>
+
 <body>
     <section class="text-gray-400 bg-gray-900 body-font relative">
         <div class="container px-5 py-24 mx-auto">
             <div class="text-center mb-12">
-                <h1 class="text-3xl font-medium text-white">Struggling with Work or Studies?</h1>
+                <h1 class="text-3xl font-medium text-white">Struggling with Personal Problems?</h1>
                 <p class="mt-2 text-gray-400">Share your concerns anonymously and get guidance.</p>
             </div>
-            <form method="POST" id="form">
+            <form id="form" method="POST" onsubmit="return formValidation(event)">
                 <div class="lg:w-1/2 md:w-2/3 mx-auto">
                     <div class="flex flex-wrap -m-2">
                         <input type="hidden" name="access_key" value="8579635a-92fc-4aff-8363-61123ee499b5">
-
+                        
                         <!-- Gender -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">Gender</label>
-                            <select id="gender" name="gender" required class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                            <select id="gender" name="gender" required
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
 
-                        <!-- Work or Study Category -->
+                        <!-- Personal Problem Category -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">What are you struggling with?</label>
-                            <select id="category" name="category" required class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded" onchange="toggleOtherField(this, 'other-work-study')">
-                                <option value="study-stress">Study Stress</option>
-                                <option value="career-confusion">Career Confusion</option>
-                                <option value="exam-pressure">Exam Pressure</option>
-                                <option value="work-burnout">Work Burnout</option>
-                                <option value="time-management">Time Management</option>
-                                <option value="motivation">Lack of Motivation</option>
+                            <select id="category" name="category" required
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded"
+                                onchange="toggleOtherField(this, 'other-work-study')">
+                                <option value="family-issues">Family Issues</option>
+                                <option value="relationship-problems">Relationship Problems</option>
+                                <option value="loneliness">Loneliness</option>
+                                <option value="friendship-issues">Friendship Issues</option>
+                                <option value="self-identity">Self-Identity Struggles</option>
                                 <option value="other">Other</option>
                             </select>
                         </div>
 
-                        <!-- Other Category Text Area (Hidden by Default) -->
+                        <!-- "Other" Text Area (Hidden by Default) -->
                         <div class="p-2 w-full" id="other-work-study" style="display: none;">
                             <label class="leading-7 text-sm text-gray-400">Please specify</label>
-                            <textarea id="other-category" name="other-category" class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-20 rounded"></textarea>
+                            <textarea id="other-category" name="other-category"
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-16 rounded"></textarea>
                         </div>
 
                         <!-- Severity Level -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">How severe is this issue?</label>
-                            <select name="severity" required class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                            <select name="severity" required
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
                                 <option value="mild">Mild</option>
                                 <option value="moderate">Moderate</option>
                                 <option value="severe">Severe</option>
@@ -71,13 +78,15 @@
                         <!-- Problem Description -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">Describe your issue</label>
-                            <textarea id="message" name="message" required class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-32 rounded"></textarea>
+                            <textarea id="message" name="message" required
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 h-32 rounded"></textarea>
                         </div>
 
                         <!-- Response Preference -->
                         <div class="p-2 w-full">
                             <label class="leading-7 text-sm text-gray-400">Preferred Response Type</label>
-                            <select name="response-type" class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                            <select name="response-type"
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
                                 <option value="detailed-guide">Detailed Guide</option>
                                 <option value="quick-advice">Quick Advice</option>
                             </select>
@@ -85,8 +94,9 @@
 
                         <!-- Optional Anonymous ID -->
                         <div class="p-2 w-full">
-                            <label class="leading-7 text-sm text-gray-400">Anonymous ID (Optional)</label>
-                            <input type="text" name="contact" class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
+                            <label class="leading-7 text-sm text-gray-400">Anonymous ID</label>
+                            <input type="text" name="contact"
+                                class="w-full bg-gray-800 border border-gray-700 text-gray-100 py-2 px-3 rounded">
                             <p class="text-xs text-gray-500">Use this ID to track your response anonymously.</p>
                         </div>
 
@@ -94,12 +104,16 @@
                         <div class="p-2 w-full">
                             <button type="submit" class="mx-auto text-white bg-purple-500 py-2 px-8 rounded">Submit</button>
                         </div>
+
+                        <!-- Error Display -->
                         <div id="error" class="text-red-500 text-center mt-2"></div>
                     </div>
                 </div>
             </form>
         </div>
     </section>
+
+    <script src="personalproblem.js"></script>
 </body>
-<script src="script.js"></script>
+
 </html>

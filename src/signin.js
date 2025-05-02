@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Redirect to homepage after a brief delay
             setTimeout(() => {
-                window.location.replace("src/components/homepage/homepage.html");
+                window.location.replace("src/homepage/homepage.html");
             }, 2000);
         } catch (error) {
             showMessage(error.message, "error");

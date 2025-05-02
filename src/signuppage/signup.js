@@ -1,7 +1,7 @@
 // signup.js
-import { auth } from "../../firebase.js";
+import { auth } from "../firebase.js";
 import { createUserWithEmailAndPassword, sendEmailVerification, updateProfile } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
-import { showMessage } from "../../../functions/showMes.js";
+import { showMessage } from "../../functions/showMes.js";
 
 // Import Firestore functions
 import { getFirestore, doc, getDoc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
